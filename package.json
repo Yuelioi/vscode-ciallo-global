@@ -2,7 +2,7 @@
   "name": "ciallo-global",
   "displayName": "Ciallo Global",
   "description": "Share files and folders across multiple VS Code workspaces for quick access.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "yuelili",
   "author": {
     "name": "YUE LI",
@@ -44,7 +44,7 @@
         {
           "id": "ciallo-explorer",
           "title": "%view.container.title%",
-          "icon": "$(files)"
+          "icon": "resources/bar.svg"
         }
       ]
     },
@@ -53,7 +53,7 @@
         {
           "id": "cialloFileExplorer",
           "name": "%view.explorer.title%",
-          "icon": "$(folder)"
+          "icon": "resources/bar.svg"
         }
       ]
     },
