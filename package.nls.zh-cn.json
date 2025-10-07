@@ -1,0 +1,15 @@
+{
+  "view.container.title": "Ciallo管理器",
+  "view.explorer.title": "🗂️ 文件",
+  "cmd.toggleMode": "切换文件夹/文件模式",
+  "cmd.refresh": "刷新",
+  "cmd.openSettings": "打开设置",
+  "cmd.openFile": "打开文件",
+  "cmd.revealInExplorer": "在资源管理器中打开",
+  "cmd.openFolder": "在新窗口中打开文件夹",
+  "cmd.removeFile": "移除该文件",
+  "cmd.removeFolder": "移除该文件夹",
+  "config.title": "Ciallo 全局配置",
+  "config.folders": "文件夹路径列表",
+  "config.files": "文件路径列表"
+}

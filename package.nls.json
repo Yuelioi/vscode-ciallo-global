@@ -1,0 +1,19 @@
+{
+  "view.container.title": "Ciallo Manager",
+  "view.explorer.title": "🗂️ Files",
+  "cmd.toggleMode": "Toggle Folder/File Mode",
+  "cmd.refresh": "Refresh",
+  "cmd.openSettings": "Open Settings",
+  "cmd.openFile": "Open File",
+  "cmd.revealInExplorer": "Reveal in Explorer",
+  "cmd.openFolder": "Open Folder in New Window",
+  "cmd.removeFile": "Remove File",
+  "cmd.removeFolder": "Remove Folder",
+  "config.title": "Ciallo Global",
+  "config.folders": "List of shared folders",
+  "config.files": "List of shared files",
+  "removeFolder.notInConfig": "This folder is not in global configuration.",
+  "removeFolder.success": "Removed folder from configuration: {0}",
+  "removeFile.notInConfig": "This file path is not in configuration.",
+  "removeFile.success": "Removed file from configuration: {0}"
+}

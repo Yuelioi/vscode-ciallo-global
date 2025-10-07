@@ -1,0 +1,200 @@
+{
+  "name": "ciallo-global",
+  "displayName": "Ciallo Global",
+  "description": "Share files and folders across multiple VS Code workspaces for quick access.",
+  "version": "0.0.1",
+  "publisher": "yuelili",
+  "author": {
+    "name": "YUE LI",
+    "email": "yuelioi1210@gmail.com"
+  },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.104.0"
+  },
+  "sponsor": {
+    "url": "https://www.yuelili.com"
+  },
+  "categories": [
+    "Other",
+    "Notebooks",
+    "Snippets"
+  ],
+  "keywords": [
+    "global",
+    "shared",
+    "file explorer",
+    "utility",
+    "settings"
+  ],
+  "icon": "resources/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yuelioi/ciallo-global.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Yuelioi/ciallo-global/issues"
+  },
+  "homepage": "https://github.com/Yuelioi/ciallo-global#readme",
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "ciallo-explorer",
+          "title": "%view.container.title%",
+          "icon": "$(files)"
+        }
+      ]
+    },
+    "views": {
+      "ciallo-explorer": [
+        {
+          "id": "cialloFileExplorer",
+          "name": "%view.explorer.title%",
+          "icon": "$(folder)"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "ciallo-global.toggleMode",
+        "title": "%cmd.toggleMode%",
+        "icon": "$(arrow-swap)"
+      },
+      {
+        "command": "ciallo-global.refresh",
+        "title": "%cmd.refresh%",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "ciallo-global.openSettings",
+        "title": "%cmd.openSettings%",
+        "icon": "$(settings-gear)"
+      },
+      {
+        "command": "ciallo-global.openFile",
+        "title": "%cmd.openFile%"
+      },
+      {
+        "command": "ciallo-global.revealInExplorer",
+        "title": "%cmd.revealInExplorer%",
+        "icon": "$(folder-opened)"
+      },
+      {
+        "command": "ciallo-global.openFolder",
+        "title": "%cmd.openFolder%",
+        "icon": "$(window)"
+      },
+      {
+        "command": "ciallo-global.removeCurrentFile",
+        "title": "%cmd.removeFile%",
+        "icon": "$(folder-opened)"
+      },
+      {
+        "command": "ciallo-global.removeCurrentFolder",
+        "title": "%cmd.removeFolder%",
+        "icon": "$(window)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "ciallo-global.toggleMode",
+          "when": "view == cialloFileExplorer",
+          "group": "navigation@1"
+        },
+        {
+          "command": "ciallo-global.refresh",
+          "when": "view == cialloFileExplorer",
+          "group": "navigation@2"
+        },
+        {
+          "command": "ciallo-global.openSettings",
+          "when": "view == cialloFileExplorer",
+          "group": "navigation@3"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "ciallo-global.revealInExplorer",
+          "when": "view == cialloFileExplorer",
+          "group": "navigation@1"
+        },
+        {
+          "command": "ciallo-global.removeCurrentFile",
+          "when": "view == cialloFileExplorer && viewItem == rootFile",
+          "group": "navigation@1"
+        },
+        {
+          "command": "ciallo-global.openFolder",
+          "when": "view == cialloFileExplorer && viewItem =~ /folder|rootFolder/",
+          "group": "navigation@2"
+        },
+        {
+          "command": "ciallo-global.removeCurrentFolder",
+          "when": "view == cialloFileExplorer && viewItem == rootFolder",
+          "group": "navigation@2"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "%config.title%",
+      "properties": {
+        "cialloGlobal.folders": {
+          "type": "array",
+          "default": [],
+          "description": "%config.folders%",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cialloGlobal.files": {
+          "type": "array",
+          "default": [],
+          "description": "%config.files%",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish1": "npm run esbuild-base1 -- --minify",
+    "esbuild-base1": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+    "package1": "pnpm vsce package --no-dependencies",
+    "publish1": "pnpm vsce publish --no-dependencies",
+    "vscode:prepublish": "pnpm run package",
+    "compile": "pnpm run check-types && pnpm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "pnpm run check-types && pnpm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.104.0",
+    "@typescript-eslint/eslint-plugin": "^8.45.0",
+    "@typescript-eslint/parser": "^8.45.0",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.6.2",
+    "esbuild": "^0.25.10",
+    "eslint": "^9.36.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "vscode-nls": "^5.2.0",
+    "vscode-nls-dev": "^4.0.4"
+  }
+}
