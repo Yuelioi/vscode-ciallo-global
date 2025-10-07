@@ -2,7 +2,7 @@
   "name": "ciallo-global",
   "displayName": "Ciallo Global",
   "description": "Share files and folders across multiple VS Code workspaces for quick access.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "yuelili",
   "author": {
     "name": "YUE LI",
@@ -30,12 +30,12 @@
   "icon": "resources/icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Yuelioi/ciallo-global.git"
+    "url": "https://github.com/Yuelioi/vscode-ciallo-global.git"
   },
   "bugs": {
-    "url": "https://github.com/Yuelioi/ciallo-global/issues"
+    "url": "https://github.com/Yuelioi/vscode-ciallo-global/issues"
   },
-  "homepage": "https://github.com/Yuelioi/ciallo-global#readme",
+  "homepage": "https://github.com/Yuelioi/vscode-ciallo-global#readme",
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
