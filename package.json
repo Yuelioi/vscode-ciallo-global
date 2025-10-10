@@ -2,7 +2,7 @@
   "name": "ciallo-global",
   "displayName": "Ciallo Global",
   "description": "Share files and folders across multiple VS Code workspaces for quick access.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "yuelili",
   "author": {
     "name": "YUE LI",
@@ -96,6 +96,14 @@
         "command": "ciallo-global.removeCurrentFolder",
         "title": "%cmd.removeFolder%",
         "icon": "$(window)"
+      },
+      {
+        "command": "ciallo-global.addToCialloConfig",
+        "title": "%cmd.addToCialloConfig%"
+      },
+      {
+        "command": "ciallo-global.openGitRemote",
+        "title": "%cmd.openGitRemote%"
       }
     ],
     "menus": {
@@ -125,7 +133,7 @@
         {
           "command": "ciallo-global.removeCurrentFile",
           "when": "view == cialloFileExplorer && viewItem == rootFile",
-          "group": "navigation@1"
+          "group": "navigation@9"
         },
         {
           "command": "ciallo-global.openFolder",
@@ -135,7 +143,19 @@
         {
           "command": "ciallo-global.removeCurrentFolder",
           "when": "view == cialloFileExplorer && viewItem == rootFolder",
-          "group": "navigation@2"
+          "group": "navigation@9"
+        },
+        {
+          "command": "ciallo-global.openGitRemote",
+          "when": "view == cialloFileExplorer && viewItem =~ /folder|rootFolder/",
+          "group": "navigation@10"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "ciallo-global.addToCialloConfig",
+          "when": "resourceLangId != ''",
+          "group": "navigation@9"
         }
       ]
     },

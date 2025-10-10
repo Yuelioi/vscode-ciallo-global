@@ -4,7 +4,12 @@ import {
   ViewMode,
 } from "./providers/FileExplorerProvider";
 import { ConfigurationManager } from "./config/ConfigurationManager";
-import { removeFileByPath, removeFolderByPath } from "./utils";
+import {
+  addToCialloConfigCommand,
+  openGitRemote,
+  removeFileByPath,
+  removeFolderByPath,
+} from "./utils";
 
 export function activate(context: vscode.ExtensionContext) {
   console.log('Extension "ciallo-global" is now active!');
@@ -23,7 +28,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   treeView.title = "🗂️";
 
-  // 注册命令：切换显示模式（文件夹/文件）
+  // 切换显示模式（文件夹/文件）
   const toggleModeCommand = vscode.commands.registerCommand(
     "ciallo-global.toggleMode",
     () => {
@@ -36,7 +41,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
-  // 注册命令：打开文件
+  // 打开文件
   const openFileCommand = vscode.commands.registerCommand(
     "ciallo-global.openFile",
     (filePath: string) => {
@@ -45,7 +50,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
-  // 注册命令：刷新视图
+  // 刷新视图
   const refreshCommand = vscode.commands.registerCommand(
     "ciallo-global.refresh",
     () => {
@@ -53,7 +58,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
-  // 注册命令：打开设置
+  // 打开设置
   const openSettingsCommand = vscode.commands.registerCommand(
     "ciallo-global.openSettings",
     () => {
@@ -64,7 +69,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
-  // 注册命令：在资源管理器中打开
+  // 在资源管理器中打开
   const revealInExplorerCommand = vscode.commands.registerCommand(
     "ciallo-global.revealInExplorer",
     (item: any) => {
@@ -78,7 +83,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
-  // 注册命令：在 VS Code 中打开文件夹
+  // 在 VS Code 中打开文件夹
   const openFolderCommand = vscode.commands.registerCommand(
     "ciallo-global.openFolder",
     (item: any) => {
@@ -95,6 +100,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
+  // 移除当前文件配置
   const removeFileCommand = vscode.commands.registerCommand(
     "ciallo-global.removeCurrentFile",
     (item: any) => {
@@ -105,6 +111,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
+  // 移除当前文件夹配置
   const removeFolderCommand = vscode.commands.registerCommand(
     "ciallo-global.removeCurrentFolder",
     (item: any) => {
@@ -115,6 +122,15 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
+  const openGitRemoteCommand = vscode.commands.registerCommand(
+    "ciallo-global.openGitRemote",
+    async (item: any) => {
+      if (!item || !item.resourcePath) {
+        return;
+      }
+      openGitRemote(item.resourcePath);
+    }
+  );
   context.subscriptions.push(
     treeView,
     toggleModeCommand,
@@ -124,7 +140,9 @@ export function activate(context: vscode.ExtensionContext) {
     revealInExplorerCommand,
     openFolderCommand,
     removeFileCommand,
-    removeFolderCommand
+    removeFolderCommand,
+    addToCialloConfigCommand,
+    openGitRemoteCommand
   );
 }
 

@@ -1,4 +1,3 @@
-
 # 🗂️ Ciallo Global
 
 > 🌍 Share Files and Folders Across Multiple VS Code Projects
@@ -26,16 +25,13 @@ I recently started using the Rime input method and found myself constantly needi
 * 🔄  **Dual View Mode** : Instantly switch between **Folder Mode** and **File Mode** views.
 * 🧹  **Quick Management** : Right-click to easily remove, open, or refresh items.
 * ⚙️  **Persistent Configuration** : Settings are automatically saved to your VS Code global settings.
-
----
+* 🌐  Git projects support open in remote url
 
 ## 📦 Installation
 
 ### Install from VS Code Marketplace (Recommended)
 
 Search for `Ciallo Global` in the VS Code Extensions view, or run the following command:
-
-**Plaintext**
 
 ```
 ext install ciallo-global
