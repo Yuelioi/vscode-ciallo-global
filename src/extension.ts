@@ -3,6 +3,9 @@ import {
   FileExplorerProvider,
   ViewMode,
 } from "./providers/FileExplorerProvider";
+
+import { FileExplorerDragAndDropController } from "./providers/FileExplorerDragAndDropController";
+
 import { ConfigurationManager } from "./config/ConfigurationManager";
 import {
   addToCialloConfigCommand,
@@ -20,10 +23,16 @@ export function activate(context: vscode.ExtensionContext) {
   // 创建文件浏览器 Provider
   const fileExplorerProvider = new FileExplorerProvider(configManager);
 
+  // 拖拽管理器
+  const dragAndDropController = new FileExplorerDragAndDropController(
+    configManager
+  );
+
   // 注册 TreeView
   const treeView = vscode.window.createTreeView("cialloFileExplorer", {
     treeDataProvider: fileExplorerProvider,
     showCollapseAll: true,
+    dragAndDropController,
   });
 
   treeView.title = "Ciallo:🗂️";

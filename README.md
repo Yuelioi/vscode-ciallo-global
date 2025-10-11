@@ -55,12 +55,13 @@ Click it to open the global files/folders view.
 
 1. **Manual Addition (Via UI)**
    Access the extension settings and use the provided input fields to add paths.
-2. **Adding via `settings.json` (Advanced)**
+
+2. Drag files or folders into the view (Recommended)
+
+3. **Adding via `settings.json` (Advanced)**
    You can manually add paths to your global VS Code settings file:
 
-**JSON**
-
-```
+```json
 {
     "cialloGlobal.folders": [
         "/Users/you/Documents/shared-config"

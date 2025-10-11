@@ -22,5 +22,6 @@
   "cmd.folderExists": "📁 Folder already exists in config",
   "cmd.addedFile": "📄 File added to Ciallo config: {0}",
   "cmd.fileExists": "📄 File already exists in config",
-  "cmd.invalidTarget": "❓ Not a valid file or folder"
+  "cmd.invalidTarget": "❓ Not a valid file or folder",
+  "fileExplorer.addedMessage": "Added {0} folder(s) and {1} file(s)."
 }
