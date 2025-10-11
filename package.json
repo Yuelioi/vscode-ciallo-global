@@ -98,8 +98,8 @@
         "icon": "$(window)"
       },
       {
-        "command": "omni-tree.addToOmniConfig",
-        "title": "%cmd.addToOmniConfig%"
+        "command": "omni-tree.addToConfig",
+        "title": "%cmd.addToConfig%"
       },
       {
         "command": "omni-tree.openGitRemote",

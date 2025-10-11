@@ -9,7 +9,7 @@
   "cmd.openFolder": "📂 在新窗口中打开文件夹",
   "cmd.removeFile": "❌ 移除该文件",
   "cmd.removeFolder": "🗑️ 移除该文件夹",
-  "cmd.addToOmniConfig": "📌 添加到 Omni 配置",
+  "cmd.addToConfig": "📌 添加到 Omni 配置",
   "cmd.openGitRemote": "🌐 打开 Git 远程地址",
   "config.title": "Omni 全局配置",
   "config.folders": "📁 文件夹路径列表",
