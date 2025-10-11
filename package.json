@@ -1,8 +1,8 @@
 {
-  "name": "ciallo-global",
-  "displayName": "Ciallo Global",
+  "name": "omni-tree",
+  "displayName": "Omit Tree",
   "description": "Share files and folders across multiple VS Code workspaces for quick access.",
-  "version": "0.0.8",
+  "version": "0.0.1",
   "publisher": "yuelili",
   "author": {
     "name": "YUE LI",
@@ -30,28 +30,28 @@
   "icon": "resources/icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Yuelioi/vscode-ciallo-global.git"
+    "url": "https://github.com/Yuelioi/vscode-omni-tree.git"
   },
   "bugs": {
-    "url": "https://github.com/Yuelioi/vscode-ciallo-global/issues"
+    "url": "https://github.com/Yuelioi/vscode-omni-tree/issues"
   },
-  "homepage": "https://github.com/Yuelioi/vscode-ciallo-global#readme",
+  "homepage": "https://github.com/Yuelioi/vscode-omni-tree#readme",
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "ciallo-explorer",
+          "id": "omni-explorer",
           "title": "%view.container.title%",
           "icon": "resources/bar.svg"
         }
       ]
     },
     "views": {
-      "ciallo-explorer": [
+      "omni-explorer": [
         {
-          "id": "cialloFileExplorer",
+          "id": "omniFileExplorer",
           "name": "%view.explorer.title%",
           "icon": "resources/bar.svg"
         }
@@ -59,101 +59,101 @@
     },
     "commands": [
       {
-        "command": "ciallo-global.toggleMode",
+        "command": "omni-tree.toggleMode",
         "title": "%cmd.toggleMode%",
         "icon": "$(arrow-swap)"
       },
       {
-        "command": "ciallo-global.refresh",
+        "command": "omni-tree.refresh",
         "title": "%cmd.refresh%",
         "icon": "$(refresh)"
       },
       {
-        "command": "ciallo-global.openSettings",
+        "command": "omni-tree.openSettings",
         "title": "%cmd.openSettings%",
         "icon": "$(settings-gear)"
       },
       {
-        "command": "ciallo-global.openFile",
+        "command": "omni-tree.openFile",
         "title": "%cmd.openFile%"
       },
       {
-        "command": "ciallo-global.revealInExplorer",
+        "command": "omni-tree.revealInExplorer",
         "title": "%cmd.revealInExplorer%",
         "icon": "$(folder-opened)"
       },
       {
-        "command": "ciallo-global.openFolder",
+        "command": "omni-tree.openFolder",
         "title": "%cmd.openFolder%",
         "icon": "$(window)"
       },
       {
-        "command": "ciallo-global.removeCurrentFile",
+        "command": "omni-tree.removeCurrentFile",
         "title": "%cmd.removeFile%",
         "icon": "$(folder-opened)"
       },
       {
-        "command": "ciallo-global.removeCurrentFolder",
+        "command": "omni-tree.removeCurrentFolder",
         "title": "%cmd.removeFolder%",
         "icon": "$(window)"
       },
       {
-        "command": "ciallo-global.addToCialloConfig",
-        "title": "%cmd.addToCialloConfig%"
+        "command": "omni-tree.addToOmniConfig",
+        "title": "%cmd.addToOmniConfig%"
       },
       {
-        "command": "ciallo-global.openGitRemote",
+        "command": "omni-tree.openGitRemote",
         "title": "%cmd.openGitRemote%"
       }
     ],
     "menus": {
       "view/title": [
         {
-          "command": "ciallo-global.toggleMode",
-          "when": "view == cialloFileExplorer",
+          "command": "omni-tree.toggleMode",
+          "when": "view == omniFileExplorer",
           "group": "navigation@1"
         },
         {
-          "command": "ciallo-global.refresh",
-          "when": "view == cialloFileExplorer",
+          "command": "omni-tree.refresh",
+          "when": "view == omniFileExplorer",
           "group": "navigation@2"
         },
         {
-          "command": "ciallo-global.openSettings",
-          "when": "view == cialloFileExplorer",
+          "command": "omni-tree.openSettings",
+          "when": "view == omniFileExplorer",
           "group": "navigation@3"
         }
       ],
       "view/item/context": [
         {
-          "command": "ciallo-global.revealInExplorer",
-          "when": "view == cialloFileExplorer",
+          "command": "omni-tree.revealInExplorer",
+          "when": "view == omniFileExplorer",
           "group": "navigation@1"
         },
         {
-          "command": "ciallo-global.removeCurrentFile",
-          "when": "view == cialloFileExplorer && viewItem == rootFile",
+          "command": "omni-tree.removeCurrentFile",
+          "when": "view == omniFileExplorer && viewItem == rootFile",
           "group": "navigation@9"
         },
         {
-          "command": "ciallo-global.openFolder",
-          "when": "view == cialloFileExplorer && viewItem =~ /folder|rootFolder/",
+          "command": "omni-tree.openFolder",
+          "when": "view == omniFileExplorer && viewItem =~ /folder|rootFolder/",
           "group": "navigation@2"
         },
         {
-          "command": "ciallo-global.removeCurrentFolder",
-          "when": "view == cialloFileExplorer && viewItem == rootFolder",
+          "command": "omni-tree.removeCurrentFolder",
+          "when": "view == omniFileExplorer && viewItem == rootFolder",
           "group": "navigation@9"
         },
         {
-          "command": "ciallo-global.openGitRemote",
-          "when": "view == cialloFileExplorer && viewItem =~ /folder|rootFolder/",
+          "command": "omni-tree.openGitRemote",
+          "when": "view == omniFileExplorer && viewItem =~ /folder|rootFolder/",
           "group": "navigation@10"
         }
       ],
       "explorer/context": [
         {
-          "command": "ciallo-global.addToCialloConfig",
+          "command": "omni-tree.addToConfig",
           "when": "resourceLangId != ''",
           "group": "navigation@9"
         }
@@ -162,7 +162,7 @@
     "configuration": {
       "title": "%config.title%",
       "properties": {
-        "cialloGlobal.folders": {
+        "omniTree.folders": {
           "type": "array",
           "default": [],
           "description": "%config.folders%",
@@ -170,7 +170,7 @@
             "type": "string"
           }
         },
-        "cialloGlobal.files": {
+        "omniTree.files": {
           "type": "array",
           "default": [],
           "description": "%config.files%",

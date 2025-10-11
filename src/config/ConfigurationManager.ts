@@ -1,17 +1,17 @@
 import * as vscode from "vscode";
 
-export interface CialloConfig {
+export interface Config {
   folders: string[];
   files: string[];
 }
 
 export class ConfigurationManager {
-  private static readonly CONFIG_KEY = "cialloGlobal";
+  private static readonly CONFIG_KEY = "omniTree";
 
   /**
    * 获取配置
    */
-  getConfig(): CialloConfig {
+  getConfig(): Config {
     const config = vscode.workspace.getConfiguration(
       ConfigurationManager.CONFIG_KEY
     );

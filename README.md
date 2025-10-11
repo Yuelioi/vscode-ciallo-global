@@ -1,4 +1,4 @@
-# 🗂️ Ciallo Global
+# 🗂️ Omni Tree
 
 > 🌍 Share Files and Folders Across Multiple VS Code Projects
 
@@ -12,11 +12,11 @@
 
 I recently started using the Rime input method and found myself constantly needing to access my custom dictionary files. It was frustrating and inefficient to repeatedly navigate to them.
 
-**Ciallo Global** solves this by letting you access important files and folders from a single, unified view, no matter which project you currently have open.
+**Omni Tree** solves this by letting you access important files and folders from a single, unified view, no matter which project you currently have open.
 
 ## ✨ Features
 
-**Ciallo Global** allows you to  **share files and folders across multiple workspaces** . You can quickly access, open, and manage them from a centralized view, regardless of your current project's location.
+**Omni Tree** allows you to  **share files and folders across multiple workspaces** . You can quickly access, open, and manage them from a centralized view, regardless of your current project's location.
 
 ### 🧩 Core Features
 
@@ -31,10 +31,10 @@ I recently started using the Rime input method and found myself constantly needi
 
 ### Install from VS Code Marketplace (Recommended)
 
-Search for `Ciallo Global` in the VS Code Extensions view, or run the following command:
+Search for `Omni Tree` in the VS Code Extensions view, or run the following command:
 
 ```
-ext install ciallo-global
+ext install omni-tree
 ```
 
 ---
@@ -45,7 +45,7 @@ ext install ciallo-global
 
 A new icon will appear in your Activity Bar:
 
-> 📦 **Ciallo Manager**
+> 📦 **OmniManager**
 
 Click it to open the global files/folders view.
 
@@ -55,18 +55,16 @@ Click it to open the global files/folders view.
 
 1. **Manual Addition (Via UI)**
    Access the extension settings and use the provided input fields to add paths.
-
 2. Drag files or folders into the view (Recommended)
-
 3. **Adding via `settings.json` (Advanced)**
    You can manually add paths to your global VS Code settings file:
 
 ```json
 {
-    "cialloGlobal.folders": [
+    "omniTree.folders": [
         "/Users/you/Documents/shared-config"
     ],
-    "cialloGlobal.files": [
+    "omniTree.files": [
         "/Users/you/Documents/notes/todo.md"
     ]
 }
@@ -89,8 +87,8 @@ Click it to open the global files/folders view.
 
 | Name                     | Type         | Default Value | Description                                  |
 | ------------------------ | ------------ | ------------- | -------------------------------------------- |
-| `cialloGlobal.folders` | `string[]` | `[]`        | A list of paths for globally shared folders. |
-| `cialloGlobal.files`   | `string[]` | `[]`        | A list of paths for globally shared files.   |
+| `omniTree.folders` | `string[]` | `[]`        | A list of paths for globally shared folders. |
+| `omniTree.files`   | `string[]` | `[]`        | A list of paths for globally shared files.   |
 
 > 📝 All configurations are saved in the VS Code global settings, making them available across any project.
 

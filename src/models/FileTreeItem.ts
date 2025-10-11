@@ -39,7 +39,7 @@ export class FileTreeItem extends vscode.TreeItem {
     // 文件类型支持双击打开
     if (type === FileTreeItemType.File && exists) {
       this.command = {
-        command: "ciallo-global.openFile",
+        command: "omni-tree.openFile",
         title: "Open File",
         arguments: [resourcePath],
       };

@@ -66,8 +66,8 @@ export async function removeFileByPath(
 }
 
 // 资源管理器右键注册配置
-export const addToCialloConfigCommand = vscode.commands.registerCommand(
-  "ciallo-global.addToCialloConfig",
+export const addToConfigCommand = vscode.commands.registerCommand(
+  "omni-tree.addToConfig",
   async (uri: vscode.Uri) => {
     const configManager = new ConfigurationManager();
     const path = uri.fsPath;
@@ -80,11 +80,7 @@ export const addToCialloConfigCommand = vscode.commands.registerCommand(
         current.push(path);
         await configManager.updateFolders(current);
         vscode.window.showInformationMessage(
-          localize(
-            "cmd.addedFolder",
-            "📁 Folder added to Ciallo config: {0}",
-            path
-          )
+          localize("cmd.addedFolder", "📁 Folder added to config: {0}", path)
         );
       } else {
         vscode.window.showWarningMessage(
@@ -98,7 +94,7 @@ export const addToCialloConfigCommand = vscode.commands.registerCommand(
         current.push(path);
         await configManager.updateFiles(current);
         vscode.window.showInformationMessage(
-          localize("cmd.addedFile", "📄 File added to Ciallo config: {0}", path)
+          localize("cmd.addedFile", "📄 File added to config: {0}", path)
         );
       } else {
         vscode.window.showWarningMessage(

@@ -8,14 +8,14 @@ import { FileExplorerDragAndDropController } from "./providers/FileExplorerDragA
 
 import { ConfigurationManager } from "./config/ConfigurationManager";
 import {
-  addToCialloConfigCommand,
+  addToConfigCommand,
   openGitRemote,
   removeFileByPath,
   removeFolderByPath,
 } from "./utils";
 
 export function activate(context: vscode.ExtensionContext) {
-  console.log('Extension "ciallo-global" is now active!');
+  console.log('Extension "omni-tree" is now active!');
 
   // 初始化配置管理器
   const configManager = new ConfigurationManager();
@@ -29,30 +29,30 @@ export function activate(context: vscode.ExtensionContext) {
   );
 
   // 注册 TreeView
-  const treeView = vscode.window.createTreeView("cialloFileExplorer", {
+  const treeView = vscode.window.createTreeView("omniFileExplorer", {
     treeDataProvider: fileExplorerProvider,
     showCollapseAll: true,
     dragAndDropController,
   });
 
-  treeView.title = "Ciallo:🗂️";
+  treeView.title = "Omit Tree:🗂️";
 
   // 切换显示模式（文件夹/文件）
   const toggleModeCommand = vscode.commands.registerCommand(
-    "ciallo-global.toggleMode",
+    "omni-tree.toggleMode",
     () => {
       fileExplorerProvider.toggleMode();
       if (fileExplorerProvider.getCurrentMode() === ViewMode.Files) {
-        treeView.title = "Ciallo:📄";
+        treeView.title = "Omit Tree:📄";
       } else {
-        treeView.title = "Ciallo:🗂️";
+        treeView.title = "Omit Tree:🗂️";
       }
     }
   );
 
   // 打开文件
   const openFileCommand = vscode.commands.registerCommand(
-    "ciallo-global.openFile",
+    "omni-tree.openFile",
     (filePath: string) => {
       const uri = vscode.Uri.file(filePath);
       vscode.window.showTextDocument(uri);
@@ -61,7 +61,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   // 刷新视图
   const refreshCommand = vscode.commands.registerCommand(
-    "ciallo-global.refresh",
+    "omni-tree.refresh",
     () => {
       fileExplorerProvider.refresh();
     }
@@ -69,18 +69,18 @@ export function activate(context: vscode.ExtensionContext) {
 
   // 打开设置
   const openSettingsCommand = vscode.commands.registerCommand(
-    "ciallo-global.openSettings",
+    "omni-tree.openSettings",
     () => {
       vscode.commands.executeCommand(
         "workbench.action.openSettings",
-        "cialloGlobal"
+        "omniTree"
       );
     }
   );
 
   // 在资源管理器中打开
   const revealInExplorerCommand = vscode.commands.registerCommand(
-    "ciallo-global.revealInExplorer",
+    "omni-tree.revealInExplorer",
     (item: any) => {
       const filePath = item.resourcePath || item;
       if (filePath) {
@@ -94,7 +94,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   // 在 VS Code 中打开文件夹
   const openFolderCommand = vscode.commands.registerCommand(
-    "ciallo-global.openFolder",
+    "omni-tree.openFolder",
     (item: any) => {
       const folderPath = item.resourcePath || item;
       if (folderPath) {
@@ -111,7 +111,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   // 移除当前文件配置
   const removeFileCommand = vscode.commands.registerCommand(
-    "ciallo-global.removeCurrentFile",
+    "omni-tree.removeCurrentFile",
     (item: any) => {
       if (!item || !item.resourcePath) {
         return;
@@ -122,7 +122,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   // 移除当前文件夹配置
   const removeFolderCommand = vscode.commands.registerCommand(
-    "ciallo-global.removeCurrentFolder",
+    "omni-tree.removeCurrentFolder",
     (item: any) => {
       if (!item || !item.resourcePath) {
         return;
@@ -132,7 +132,7 @@ export function activate(context: vscode.ExtensionContext) {
   );
 
   const openGitRemoteCommand = vscode.commands.registerCommand(
-    "ciallo-global.openGitRemote",
+    "omni-tree.openGitRemote",
     async (item: any) => {
       if (!item || !item.resourcePath) {
         return;
@@ -140,6 +140,7 @@ export function activate(context: vscode.ExtensionContext) {
       openGitRemote(item.resourcePath);
     }
   );
+
   context.subscriptions.push(
     treeView,
     toggleModeCommand,
@@ -150,7 +151,7 @@ export function activate(context: vscode.ExtensionContext) {
     openFolderCommand,
     removeFileCommand,
     removeFolderCommand,
-    addToCialloConfigCommand,
+    addToConfigCommand,
     openGitRemoteCommand
   );
 }

@@ -1,4 +1,4 @@
-# 🗂️ Ciallo Global
+# 🗂️ Omni Tree
 
 > 🌍 在多个项目间共享文件与文件夹的 VS Code 插件
 
@@ -16,7 +16,7 @@
 
 ## ✨ 功能介绍
 
-**Ciallo Global** 让你能够在  **多个工作区之间共享文件或文件夹** ，
+**Omni Tree** 让你能够在  **多个工作区之间共享文件或文件夹** ，
 
 无论项目位于哪里，都能在一个统一的视图中快速访问、打开和管理。
 
@@ -35,10 +35,10 @@
 
 ### 从 VS Code Marketplace 安装（推荐）
 
-在 VS Code 扩展商店中搜索 `Ciallo Global` 或运行命令：
+在 VS Code 扩展商店中搜索 `Omni Tree` 或运行命令：
 
 ```txt
-ext install ciallo-global
+ext install omni-tree
 ```
 
 ---
@@ -49,7 +49,7 @@ ext install ciallo-global
 
 在活动栏（Activity Bar）中会出现一个新的图标：
 
-> 📦 **Ciallo 管理器**
+> 📦 **Omni管理器**
 
 点击后可打开全局文件/文件夹视图。
 
@@ -66,11 +66,11 @@ ext install ciallo-global
 
 ```json
 {
-  "cialloGlobal.folders": [
-    "/Users/you/Documents/shared"
+  "omniTree.folders": [
+    "/Users/you/Documents/shared" ...
   ],
-  "cialloGlobal.files": [
-    "/Users/you/Documents/notes/todo.md"
+  "omniTree.files": [
+    "/Users/you/Documents/notes/todo.md" ...
   ]
 }
 
@@ -93,8 +93,8 @@ ext install ciallo-global
 
 | 名称                     | 类型         | 默认值 | 说明                   |
 | ------------------------ | ------------ | ------ | ---------------------- |
-| `cialloGlobal.folders` | `string[]` | `[]` | 全局共享文件夹路径列表 |
-| `cialloGlobal.files`   | `string[]` | `[]` | 全局共享文件路径列表   |
+| `omniTree.folders` | `string[]` | `[]` | 全局共享文件夹路径列表 |
+| `omniTree.files`   | `string[]` | `[]` | 全局共享文件路径列表   |
 
 > 📝 所有配置保存在 VS Code 全局设置中，可在任意项目共享。
 
