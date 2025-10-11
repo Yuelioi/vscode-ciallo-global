@@ -109,14 +109,15 @@ export class FileExplorerProvider
 
     try {
       const items = fs.readdirSync(folder.resourcePath);
-      const children: FileTreeItem[] = [];
+      const folders: FileTreeItem[] = [];
+      const files: FileTreeItem[] = [];
 
       for (const item of items) {
         const itemPath = path.join(folder.resourcePath, item);
         const stat = fs.statSync(itemPath);
 
         if (stat.isDirectory()) {
-          children.push(
+          folders.push(
             new FileTreeItem(
               item,
               itemPath,
@@ -126,7 +127,7 @@ export class FileExplorerProvider
             )
           );
         } else {
-          children.push(
+          files.push(
             new FileTreeItem(
               item,
               itemPath,
@@ -139,7 +140,8 @@ export class FileExplorerProvider
         }
       }
 
-      return children;
+      // ✅ 先文件夹，后文件
+      return [...folders, ...files];
     } catch (error) {
       console.error(`Read folder error: ${folder.resourcePath}`, error);
       return [];
