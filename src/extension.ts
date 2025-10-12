@@ -35,7 +35,7 @@ export function activate(context: vscode.ExtensionContext) {
     dragAndDropController,
   });
 
-  treeView.title = "Omit Tree:🗂️";
+  treeView.title = "OmniTree:🗂️";
 
   // 切换显示模式（文件夹/文件）
   const toggleModeCommand = vscode.commands.registerCommand(
@@ -43,9 +43,9 @@ export function activate(context: vscode.ExtensionContext) {
     () => {
       fileExplorerProvider.toggleMode();
       if (fileExplorerProvider.getCurrentMode() === ViewMode.Files) {
-        treeView.title = "Omit Tree:📄";
+        treeView.title = "OmniTree:📄";
       } else {
-        treeView.title = "Omit Tree:🗂️";
+        treeView.title = "OmniTree:🗂️";
       }
     }
   );
